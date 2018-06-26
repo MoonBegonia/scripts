@@ -1,9 +1,8 @@
-#!/usr/bin/env bash
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+	#!/usr/bin/env bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-get_char()
-{
+get_char(){
 SAVEDSTTY=`stty -g`
 stty -echo
 stty cbreak
