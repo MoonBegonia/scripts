@@ -97,7 +97,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/root/MTProxy
-ExecStart=/root/MTProxy/objs/bin/mtproto-proxy -u nobody -p 8888 -H 2333 -S $scert --aes-pwd /root/MTProxy/objs/bin/proxy-secret /root/MTProxy/objs/bin/proxy-multi.conf -M 1
+ExecStart=/root/MTProxy/objs/bin/mtproto-proxy -u nobody -p ${mtlocalport} -H ${mtclientport} -S ${scert} --aes-pwd /root/MTProxy/objs/bin/proxy-secret /root/MTProxy/objs/bin/proxy-multi.conf -M 1
 Restart=on-failure
 
 [Install]
