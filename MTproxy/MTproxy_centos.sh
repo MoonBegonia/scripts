@@ -15,12 +15,13 @@ get_char() {
 echo ""
 echo "#############################################################"
 echo "                                                            #"
-echo "                     MTProxy_install                        #"
+echo "                  MTProxy 代理一键安装脚本                  #"
 echo "                                                            #"
 echo "#############################################################"
 echo ""
 echo ""
 echo "Press any key to start...or press Ctrl+C to cancel"
+
 char=`get_char`
 
 # get vps ip
@@ -116,7 +117,7 @@ clear
 echo -e "##########################################################################"
 echo
 echo
-echo -e "your secert is: ${secert}"
+echo -e "您的密钥为：${secert}"
 echo
 echo -e "您的 tg MTproxy 代理应用内链接为："
 echo

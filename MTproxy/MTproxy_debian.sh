@@ -12,15 +12,18 @@ stty echo
 stty $SAVEDSTTY
 }
 
+clear
+
 echo ""
 echo "#############################################################"
 echo "                                                            #"
-echo "                     MTProxy_install                        #"
+echo "                  MTProxy 代理一键安装脚本                  #"
 echo "                                                            #"
 echo "#############################################################"
 echo ""
 echo ""
 echo "Press any key to start...or press Ctrl+C to cancel"
+
 char=`get_char`
 
 # get vps ip
@@ -69,6 +72,7 @@ echo -e "请输入正确的端口 [1-65535]"
 done
 
 echo "Press any key to start...or press Ctrl+C to cancel"
+
 char=`get_char`
 
 #Install dependencies
@@ -115,7 +119,7 @@ clear
 echo -e "##########################################################################"
 echo
 echo
-echo -e "your secert is: ${secert}"
+echo -e "您的密钥为：${secert}"
 echo
 echo -e "您的 tg MTproxy 代理应用内链接为："
 echo
