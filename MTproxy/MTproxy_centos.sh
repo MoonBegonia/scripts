@@ -2,14 +2,14 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-get_char(){
-SAVEDSTTY=`stty -g`
-stty -echo
-stty cbreak
-dd if=/dev/tty bs=1 count=1 2> /dev/null
-stty -raw
-stty echo
-stty $SAVEDSTTY
+get_char() {
+    SAVEDSTTY=`stty -g`
+    stty -echo
+    stty cbreak
+    dd if=/dev/tty bs=1 count=1 2> /dev/null
+    stty -raw
+    stty echo
+    stty $SAVEDSTTY
 }
 
 echo ""
@@ -113,14 +113,18 @@ systemctl restart MTProxy.service
 systemctl enable MTProxy.service
 
 clear
-echo -e "###################################################################"
+echo -e "##########################################################################"
 echo
 echo
 echo -e "your secert is: ${secert}"
 echo
-echo -e "您的 tg MTproxy代理应用内链接为："
+echo -e "您的 tg MTproxy 代理应用内链接为："
 echo
 echo -e "tg://proxy?server=${serverip}&port=${mtclientport}&secret=${secert}"
 echo
+echo -e "您的 tg MTproxy 代理外部链接为："
 echo
-echo -e "###################################################################"
+echo -e "https://t.me/proxy?server=${serverip}&port=${mtclientport}&secret=${secert}"
+echo
+echo
+echo -e "###########################################################################"

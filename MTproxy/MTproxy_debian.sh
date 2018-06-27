@@ -112,14 +112,18 @@ systemctl restart MTProxy.service
 systemctl enable MTProxy.service
 
 clear
-echo -e "###################################################################"
+echo -e "##########################################################################"
 echo
 echo
 echo -e "your secert is: ${secert}"
 echo
-echo -e "您的 tg MTproxy代理应用内链接为："
+echo -e "您的 tg MTproxy 代理应用内链接为："
 echo
 echo -e "tg://proxy?server=${serverip}&port=${mtclientport}&secret=${secert}"
 echo
+echo -e "您的 tg MTproxy 代理外部链接为："
 echo
-echo -e "###################################################################"
+echo -e "https://t.me/proxy?server=${serverip}&port=${mtclientport}&secret=${secert}"
+echo
+echo
+echo -e "###########################################################################"
