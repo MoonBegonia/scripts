@@ -3,13 +3,13 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
 get_char() {
-    SAVEDSTTY=`stty -g`
-    stty -echo
-    stty cbreak
-    dd if=/dev/tty bs=1 count=1 2> /dev/null
-    stty -raw
-    stty echo
-    stty $SAVEDSTTY
+  SAVEDSTTY=`stty -g`
+  stty -echo
+  stty cbreak
+  dd if=/dev/tty bs=1 count=1 2> /dev/null
+  stty -raw
+  stty echo
+  stty $SAVEDSTTY
 }
 
 clear
@@ -32,43 +32,43 @@ serverip=`wget http://ipecho.net/plain -O - -q ; echo`
 # Set MTproxy local port
 while true
 do
-    dlport=8888
-    echo -e "请输入本地端口"
-    read -p "(默认本地端口: ${dlport}):" mtlocalport
-    [ -z "$mtlocalport" ] && mtlocalport=${dlport}
-    expr ${mtlocalport} + 1 &>/dev/null
-    if [ $? -eq 0 ]; then
-        if [ ${mtlocalport} -ge 1 ] && [ ${mtlocalport} -le 65535 ] && [ ${mtlocalport:0:1} != 0 ]; then
-            echo
-            echo "---------------------------"
-            echo "   port = ${mtlocalport}   "
-            echo "---------------------------"
-            echo
-            break
-        fi
+  dlport=8888
+  echo -e "请输入本地端口"
+  read -p "(默认本地端口: ${dlport}):" mtlocalport
+  [ -z "$mtlocalport" ] && mtlocalport=${dlport}
+  expr ${mtlocalport} + 1 &>/dev/null
+  if [ $? -eq 0 ]; then
+    if [ ${mtlocalport} -ge 1 ] && [ ${mtlocalport} -le 65535 ] && [ ${mtlocalport:0:1} != 0 ]; then
+      echo
+      echo "---------------------------"
+      echo "   port = ${mtlocalport}   "
+      echo "---------------------------"
+      echo
+      break
     fi
-    echo -e "请输入正确的端口 [1-65535]"
+  fi
+  echo -e "请输入正确的端口 [1-65535]"
 done
 
 # Set MTproxy client port
 while true
 do
-    dcport=443
-    echo -e "请输入客户端端口"
-    read -p "(默认客户端端口: ${dcport}):" mtclientport
-    [ -z "$mtclientport" ] && mtclientport=${dcport}
-    expr ${mtclientport} + 1 &>/dev/null
-    if [ $? -eq 0 ]; then
-        if [ ${mtclientport} -ge 1 ] && [ ${mtclientport} -le 65535 ] && [ ${mtclientport:0:1} != 0 ]; then
-            echo
-            echo "---------------------------"
-            echo "   port = ${mtclientport}  "
-            echo "---------------------------"
-            echo
-            break
-        fi
+  dcport=443
+  echo -e "请输入客户端端口"
+  read -p "(默认客户端端口: ${dcport}):" mtclientport
+  [ -z "$mtclientport" ] && mtclientport=${dcport}
+  expr ${mtclientport} + 1 &>/dev/null
+  if [ $? -eq 0 ]; then
+    if [ ${mtclientport} -ge 1 ] && [ ${mtclientport} -le 65535 ] && [ ${mtclientport:0:1} != 0 ]; then
+      echo
+      echo "---------------------------"
+      echo "   port = ${mtclientport}  "
+      echo "---------------------------"
+      echo
+      break
     fi
-    echo -e "请输入正确的端口 [1-65535]"
+  fi
+  echo -e "请输入正确的端口 [1-65535]"
 done
 
 echo "Press any key to start...or press Ctrl+C to cancel"
