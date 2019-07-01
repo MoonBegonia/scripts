@@ -1,0 +1,29 @@
+# Rclone auto mount
+# Copy file to: /usr/lib/systemd/system
+# Set remote name, path to mount and User,Group
+# Register new service by typing:
+# sudo systemctl daemon-reload
+# sudo systemctl enable rclone-mount.service
+# systemctl start rclone-mount.service
+# systemctl enable NetworkManager-wait-online.service
+# Usage:
+# To unmount drive use
+# systemctl stop rclone-mount.service
+# To mount use:
+# systemctl start rclone-mount.service
+
+[Unit]
+Description=rclone auto mount
+Documentation=https://rclone.org/docs/
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=moonbegonia
+Group=moonbegonia
+ExecStart=/usr/bin/rclone mount --allow-non-empty --vfs-cache-mode full remote:path/to/files /path/to/local/mount
+ExecStop=/usr/bin/fusermount -qzu /mnt/OneDrive
+
+[Install]
+WantedBy=multi-user.target
