@@ -1,0 +1,20 @@
+# clash auto run
+# Copy file to: /usr/lib/systemd/system
+# Register new service by typing:
+# systemctl daemon-reload
+
+# systemctl enable clash@user
+# systemctl start clash@user
+
+[Unit]
+Description=A rule based proxy in Go for %i.
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+Restart=on-abort
+ExecStart=/usr/bin/clash
+
+[Install]
+WantedBy=multi-user.target
