@@ -1,0 +1,15 @@
+# aria2 auto run
+# Copy file to: /usr/lib/systemd/user
+# change --conf-path to your path
+# Register new service by typing:
+# systemctl daemon-reload
+
+# systemctl --user enable aria2
+# systemctl --user start aria2
+
+[Unit]
+Description=Aria2 Service
+[Service]
+ExecStart=/usr/bin/aria2c --conf-path=%h/APP/aria2/aria2.conf
+[Install]
+WantedBy=default.target
